@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change password</title>
+</head>
+<body>
+    <main class="main_auth">
+        <div class="TitleChiroo">
+            <h1 class="chiroo"><a href="{% url 'index' %}" style="color: #4ddeca;">Mot de passe oublié ?</a></h1>
+        </div>
+        <form class="auth" method="post" action="">
+            <div class="title_auth_div">
+                <p class="title_auth">Changer de mots de passe :</p>
+            </div>
+            {% if error %}
+            <p class="error_auth">{{ error }}</p>
+            {% endif %}
+            {% csrf_token %}
+            <div class="auth_inputs">
+                <input type="password" placeholder="Password" class="auth_mdp auth_input" id="password" name="password" required>
+                <input type="password" placeholder="Password again" class="auth_mdp auth_input" id="password2" name="password2" required>
+            </div>
+            <button class="auth_button" type="submit">-> Changer le mots de passe <-</button>
+        </form>
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>

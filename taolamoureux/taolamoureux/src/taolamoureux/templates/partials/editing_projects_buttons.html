@@ -1,0 +1,10 @@
+<div class="editing_buttons" id="editing_buttons">
+    <form method="POST" action="{% url 'edit_project' item.title %}">
+        {% csrf_token %}
+        <button type="submit" name="edit_project" class="edit_project_b">Editer le projet</button>
+    </form>
+    <form method="POST" action="{% url 'remove_project' item.title %}">
+        {% csrf_token %}
+        <button type="submit" name="remove_project" class="remove_project_b">Supprimer le projet</button>
+    </form>
+</div>

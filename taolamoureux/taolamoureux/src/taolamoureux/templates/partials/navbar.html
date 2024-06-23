@@ -1,0 +1,30 @@
+<header>
+    <nav>
+        <ul class="navbar">
+            {% if request.path == '/' %}
+            <li> <a class="border-bottom-nav" href="{% url 'index' %}" id="accueil-link"><div class="d-button-nav">Accueil</div></a></li>
+            {% else %}
+            <li><a href="{% url 'index' %}" id="accueil-link">Accueil</a></li>
+            {% endif %}
+
+            {% if request.path == '/Projects/' %}
+            <li><a class="border-bottom-nav" href="{% url 'Projects' %}" id="projets-link"><div class="d-button-nav">Projets</div></a></li>
+            {% else %}
+            <li><a href="{% url 'Projects' %}" id="projets-link">Projets</a></li>
+            {% endif %}
+
+            {% if request.path == '/About/' %}
+            <li><a href="{% url 'About' %}" id="a-propos-link"><div class="d-button-nav">A propos</div></a></li>
+            {% else %}
+            <li><a href="{% url 'About' %}" id="a-propos-link">A propos</a></li>
+            {% endif %}
+
+            {% if request.path == '/auth/user/' %}
+            <li> <a class="border-bottom-nav" href="{% url 'user' %}" id="profil-link"><div class="d-button-nav">Profil</div></a></li>
+            {% else %}
+            <li><a href="{% url 'user' %}" id="profil-link">Profil</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+</header>

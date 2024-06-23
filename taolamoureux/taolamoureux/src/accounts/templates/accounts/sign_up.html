@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an account</title>
+</head>
+<body>
+    <main class="main_auth">
+        {% include 'partials/tao-lamoureux.html' %}
+        <form class="auth" method="post" action="">
+            <div class="title_auth_div">
+                <p class="title_auth">Se créer un compte :</p>
+            </div>
+            {% csrf_token %}
+            <div class="auth_inputs">
+                {% if error %}
+                <p class="error_auth">{{ error }}</p>
+                {% endif %}
+                <input type="text" placeholder="Username" class="auth_usr auth_input" id="username" name="username" required>
+                <input type="email" placeholder="Email" class="auth_email auth_input" id="email" name="email" required>
+                <input type="text" placeholder="Prénoms" class="auth_first-name auth_input" id="first_name" name="first-name" required>
+                <input type="text" placeholder="Noms" class="auth_last-name auth_input" id="last_name" name="last-name" required>
+                <input type="password" placeholder="Password" class="auth_mdp auth_input" id="password" name="password1" required>
+                <input type="password" placeholder="Password again" class="auth_mdp auth_input" id="password2" name="password2" required>
+            </div>
+            <button class="auth_button" id="auth_button" type="submit">-> Créer un compte <-</button>
+        </form>
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>

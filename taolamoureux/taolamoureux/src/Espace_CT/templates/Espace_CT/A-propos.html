@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace_CT - A propos</title>
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+    <main>
+        <div class="div_grid_a-propos">
+            <div class="grid_a-propos">
+                <div class="Presentation_grid_a-propos">
+                    <div class="Presentation_grid_a-propos_div-h1-img">
+                        <div class="Presentation_grid_a-propos_div-img">
+                            <img src="{% static 'svg/logo.svg' %}" class="img_Presentation_grid_a-propos">
+                        </div>
+                        <div class="Presentation_grid_a-propos_div-h1">
+                            <h1 class="h1_Presentation_grid_a-propos_div">"L'endroit où il y a mes projets de code"</h1>
+                        </div>
+                        </div>
+                    <div class="p_Presentation_grid_a-propos_div-p">
+                        <p class="p_Presentation_grid_a-propos">
+                            "Ici, il y a des projets de code, qui sont soit finis, soit en cours, ou soit viennent d'être commencé. Sache que ce site est aussi un projet donc je le mettrais dans les différents projets, ce site contient un accueil, une page à propos, et une page de tous les projets, avec l'explication du projets, et le moyen d'accessibilité à celui-ci."
+                        </p>
+                    </div>
+                </div>
+                <div class="Infos_suplémentaires_grid_a-propos">
+                    <div class="div_Infos_suplémentaire">
+                        <div class="div_Infos_suplémentaire_h1">
+                            <h1>Infos supplémentaires</h1>
+                        </div>
+                        <div class="div_Infos_suplémentaire_chiffres">
+                                <ul class="list_div_Infos_suplémentaire_chiffres">
+                                    <div class="chiffres">
+                                        <li>
+                                            🧑🏼‍💻 dev: début avril 2023;
+                                        </li>
+                                        <li>
+                                            🇫🇷 langages: HTML, CSS, JavaScript;
+                                        </li>
+                                        <li>
+                                            ⌛️ temps de dev: 1mois et des miettes;
+                                        </li>
+                                        <li>
+                                            🎮 discord: Chiroo__#6779;
+                                        </li>
+                                        <li>
+                                            📸 insta: <a href="https://www.instagram.com/chiroo__lmr/">@Chiroo__lmr</a>;
+                                        </li>
+                                        <li>
+                                            🧑🏼‍💻 github: <a href="https://github.com/Chiroo-lmr">Chiroo-lmr</a>;
+                                        </li>
+                                    </div>
+                                </ul>
+                        </div>
+                        <div class="div_Infos_suplémentaire-lien"></div>
+                    </div>
+                </div>
+                <div class="Titre_grid_a-propos">
+                    <h1><span class="E">E</span><span class="s">s</span><span class="p">p</span><span class="a">a</span><span class="c">c</span><span class="e">e</span><span class="_">_</span><span class="C">C</span><span class="T">T</span></h1>
+                </div>
+                <div class="Lien_portfolio_grid_a-propos">
+                    <h2 class="titre_Lien_portfolio_grid_a-propos">Voir <a href="404.html" class="a_titre_Lien_portfolio_grid_a-propos">le Portfolio</a></h2>
+                </div>
+            </div>
+        </div>
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>
