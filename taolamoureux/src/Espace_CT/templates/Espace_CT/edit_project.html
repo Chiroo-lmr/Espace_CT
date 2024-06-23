@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ Project.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+    <main>
+        <div class="d_title_project_to_edit">
+            <h1 class="title_project_to_edit">Editer <span class="project_to_edit">{{ Project.title }}</span></h1>
+        </div>
+        <div class="projets_container">
+            <div class="nv_carte_projet" style="display: flex;" id="nvCarteProject">
+                <form method="POST" action="{% url 'edit_project' item_title=Project.title %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="nv_texte_carte_projet">
+                        <div class="title_priority_carte_projets">
+                            <input name="title" type="text" value="{{ Project.title }}" class="titre_de_Projet nv_titre_projet">
+                            <input name="priority" type="number" value="{{ Project.priority }}" class="titre_de_Projet nv_titre_projet">
+                        </div>
+                        <textarea name="description" class="nv_description_projet">{{ Project.description }}</textarea>
+                        <input type="date" name="date" class="nv_titre_projet titre_de_Projet" placeholder="date de création" value="{{ Project.date }}">
+                    </div>
+                    <div class="links_carte_projets">
+                        <input name="images" type="file" accept="image/*" class="nv_img_project bouton_projet" value="{{ Project.images }}">
+                        {% if Project.images %}
+                            <p>Fichier actuel : <a href="{{ Project.images.url }}">{{ Project.images.url }}</a></p>
+                        {% endif %}
+                        <input name="url_placeholder" type="text" class="nv_bouton_projet" value="{{ Project.url_placeholder }}">
+                        <input name="url" type="text" class="nv_bouton_projet" value="{{ Project.url }}">
+                        <button type="submit" class="nv_bouton_projet">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+</html>

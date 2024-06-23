@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Are the servers ok ?</title>
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+    <main>
+        <div class="title_server_status">
+            <h1>Are the servers ok ?</h1>
+        </div>
+        <div class="servers_container">
+            {% if queryDone == False %}
+            <form action="" method="POST" class="formQueryServers" id="query_servers">
+                {% csrf_token %}
+                <button type="submit" name="query">See all the servers</button>
+            </form>
+            {% endif %}
+            {% for serv in servers %}
+            <div class="all_servers">
+                <div class="choose_serverD">
+                    <form action="" method="POST" class="choose_server">
+                        {% csrf_token %}
+                        <button type="submit" name="more_info_server" id="server_name" style="margin: 10px;">{{ serv.name }}</button>
+                    </form>
+                </div>
+                <div class="server_entity">
+
+                </div> 
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <script src="{% static 'js/websocketServer.js' %}"></script>
+</body>
+</html>

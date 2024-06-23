@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compteur</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/compteur.js' %}"></script>
+</head>
+<body>
+    <div class="body_compteur">
+        {% include 'partials/navbar.html' %}
+        <main>
+            <div class="compteur_générale">
+                <div class="h1_compteur_générale">
+                    <div class="div_titre_compteurG">
+                        <h1 class="titre_compteurG">Bienvenue dans ce compteur pour les journaux de mickey !</h1>
+                    </div>
+                </div>
+                <div class="ensemble_des_compteurs_grosse_div">
+                    <div class="ensemble_des_compteurs_container">
+                        <div class="compteurs" id="divCompteursJN">
+                            <button id="boutonCompteursJN">
+                                <div class="compteurs_partie_titre">
+                                    <div class="compteurs_titre_div">
+                                        <p class="titre_compteur">Nombre de journeaux normaux</p>
+                                    </div>
+                                </div>
+                                <div class="compteurs_partie_nombre">
+                                    <div class="compteurs_nombre_div">
+                                        <p class="nombre_compteurs" id="nombreCompteursJN">0</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="compteurs" id="divCompteursJA">
+                            <button id="boutonCompteursJA" >
+                                <div class="compteurs_partie_titre">
+                                    <div class="compteurs_titre_div">
+                                        <p class="titre_compteur">Nombre de journeaux anciens</p>
+                                    </div>
+                                </div>
+                                <div class="compteurs_partie_nombre">
+                                    <div class="compteurs_nombre_div">
+                                        <p class="nombre_compteurs" id="nombreCompteursJA">0</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="compteurs" id="divCompteursP">
+                            <button id="boutonCompteursP">
+                                <div class="compteurs_partie_titre">
+                                    <div class="compteurs_titre_div">
+                                        <p class="titre_compteur">Nombre de Picsou</p>
+                                    </div>
+                                </div>
+                                <div class="compteurs_partie_nombre">
+                                    <div class="compteurs_nombre_div">
+                                        <p class="nombre_compteurs" id="nombreCompteursP">0</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="compteurs" id="divCompteursF">
+                            <button id="boutonCompteursF">
+                                <div class="compteurs_partie_titre">
+                                    <div class="compteurs_titre_div">
+                                        <p class="titre_compteur">Nombre de Fantomiald</p>
+                                    </div>
+                                </div>
+                                <div class="compteurs_partie_nombre">
+                                    <div class="compteurs_nombre_div">
+                                        <p class="nombre_compteurs" id="nombreCompteursF">0</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="compteurs" id="divCompteursJTG">
+                            <button id="boutonCompteursJTG">
+                                <div class="compteurs_partie_titre">
+                                    <div class="compteurs_titre_div">
+                                        <p class="titre_compteur">Nombre de journeaux très gros</p>
+                                    </div>
+                                </div>
+                                <div class="compteurs_partie_nombre">
+                                    <div class="compteurs_nombre_div">
+                                        <p class="nombre_compteurs" id="nombreCompteursJTG">0</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="compteurs" id="divCompteursJG">
+                            <button id="boutonCompteursJG">
+                                <div class="compteurs_partie_titre">
+                                    <div class="compteurs_titre_div">
+                                        <p class="titre_compteur">Nombre de journeaux gros</p>
+                                    </div>
+                                </div>
+                                <div class="compteurs_partie_nombre">
+                                    <div class="compteurs_nombre_div">
+                                        <p class="nombre_compteurs" id="nombreCompteursJG">0</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="total_compteurs_div">
+                        <p class="p_total_compteurs">Il y a <span id="totalCompteurs">0</span> journeaux.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    {% include 'partials/footer.html' %}
+</body>
+</html>

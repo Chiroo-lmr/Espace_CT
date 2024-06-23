@@ -1,0 +1,2136 @@
+
+/*Importation des fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Rubik+Pixels&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+
+input {
+    border: none;
+}
+
+/*Correspond à tous les body du site*/
+body {
+    background-color: #CEEFF4;
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Correspond au html du site*/
+html {
+  box-sizing: border-box;
+}
+
+/*Correspond à tous les liens du site*/
+a {
+   text-decoration: none;
+}
+
+/*Correspond à la partie du milieu de la page, entre le header, 
+et le footer*/
+main {
+    flex: 1;
+}
+
+/*Ici, c'est les éléments qui sont figés et qui seront présents sur toutes
+les pages du site, avec donc le même style*/
+/*NAVBAR*/
+.navbar {
+    box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+    position: fixed;
+    height: 59px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #4ddeca;
+    font-family:'Courier New', Courier, monospace;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-weight: bold;
+    z-index: 20;
+}  
+
+/*Les listes qui se trouvent dans la ul qui se trouve 
+elle même dans la navbar*/
+.navbar li {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition:
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.1s ease;
+}
+
+.d-button-nav {
+    border-bottom: #222 solid 1px;
+    height: fit-content;
+    width: fit-content;
+}
+
+/*Les liens qui se troyvent dans les li, qui se trouvent dans la ul
+qui se trouve elle même dans la navbar*/
+.navbar li a {
+    height: 100%;
+    width: 100%;
+    font-size: 26px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*effet de hover lorsqu'on passe sur un des boutons 
+(projets, accueil et à propos)*/
+.navbar li:hover {
+    background-color: #317AC1;
+    box-shadow: 0 8px 24px #317AC1;
+    color: black;
+}
+
+
+@media screen and (max-width: 390) {
+    .navbar li a {
+        font-size: 200px;
+    }
+}
+
+/*LE FOOTER*/
+footer {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 30px;
+}
+
+.wave-footer-ensemble {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*Ca correspond au svg lui-même 
+(C'est le dessus de la vague, la vague inversé, 
+celle où on met la couleur du body pour qu'elle se cache)*/
+#curved-border-footer {
+    background-color: #CEEFF4;
+}
+/*Cette classe correspond au path qui se trouve dans le svg, 
+c'est la vague en elle même*/
+.wave-footer {
+    fill: #4ddeca;
+}
+
+/*le vrai footer tout en dessous (il y a deux partie dans le footer, 
+la vague pour la bordure, et l'endroit où on mets le texte)*/
+.contenu_footer {
+    text-align: center;
+    background-color: #4ddeca;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+/*Page login */
+.main_auth {
+    width: 100%;
+}
+
+.Titletao-lamoureux {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tao-lamoureux {
+    color: #4ddeca; 
+    font-size: 100px;
+    font-family: 'Courier New', Courier, monospace;
+}
+/*pour créer un compte (optimisation) */
+.chirooC {
+    color: #4ddeca; 
+    font-size: 80px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.auth {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.title_auth_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_auth {
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.auth_inputs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.auth_input {
+    width: 50%;
+    padding: 7px;
+    margin: 10px;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 5px 5px 15px #222 ;
+}
+
+.auth_button {
+    margin-top: 20px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.5s ease;
+}
+
+.auth_button:hover {
+    transform: translateY(-10%);
+}
+
+.requestSignupD {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.requestSignupD h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+/*page Profile*/
+
+.Profile_infos {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.d_title_profile_infos {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_profile_infos {
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.info {
+    color: rgb(245, 134, 134);
+}
+
+.mailAdress {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.p_first-name {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.management {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.b_servers_management {
+    border: #222 solid 3px;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
+
+.b_servers_management:hover {
+    transform: translateY(-10%) translate3d(0px, 0px, 15px);
+}
+
+.A_servers_management {
+    margin: 10px;
+    color:#222;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.button_pwd_logout {
+    width: 100%;
+    margin-top: 140px;
+    display: flex;
+    flex-direction: row;
+    align-self: end;
+}
+
+.password {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.d_logout {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.button_user {
+    border: #222 solid 3px;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
+
+.A_button_user {
+    margin: 10px;
+    color:#222;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.button_user:hover {
+    transform: translateY(-10%) translate3d(0px, 0px, 15px);
+}
+
+.error_auth {
+    width: 100%;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Page si on accepte ou pas la création de compte*/
+
+.infosUserRequest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.title-info-user {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.infosUserRequest p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.decideRequestSignupD {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.decideRequestSignupD form {
+    margin: 30px;
+}
+
+.decideRequestSignupD form button {
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.acceptUserRequest {
+    background:green;
+}
+
+.refuseUserRequest {
+    background: red;
+}
+
+/*Ici, ça correspond aux éléments qui se trouvent dans une page du site
+en particulier, et c'est rangé par pages. (les media queries sont placées à la fin de leur pages correspondantes).*/
+/*PAGE ACCUEIL*/
+/*Le gros titre à l'accueil*/
+.Card_Main_Title {
+    background-color: #4ddeca;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -59px;
+    animation: défilement_vers_le_bas 1.5s ease forwards;
+}
+
+.EspaceCTPad {
+    padding-top: 50px;
+}
+
+/*La première partie du gros titre (Espace)*/
+.Main_Espace-et-CT {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 125px;
+    color: #317AC1; 
+    text-align: center;
+}
+
+/*Ca correspond au svg lui-même, mais contrairement au footer, 
+comme cette fois-ci c'est dans l'autre sens, c'est la vague en elle même*/
+#curved-border-Accueil {
+    bottom: 0;
+    width: 100%;
+    background-color: #4ddeca;
+    margin-top: 0px;
+}
+
+/*Cette classe correspond au path (C'est le dessous de la vague, 
+la vague inversé, celle où on met la couleur du body pour qu'elle se cache)*/
+.wave-accueil {
+    fill: #CEEFF4;
+}
+
+.div_title-et-paragraphe_introduct {
+    font-family:'Courier New', Courier, monospace;
+    color: aqua;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 60px;
+}
+
+/*Le texte d'introduction après la séparation*/
+.div_introduct_title {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #24a3bd;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 10px 35px 30px aqua;
+    max-width: 80%;
+    animation: défilement_vers_la_droite 2.25s ease forwards;
+}
+
+.introduct_Title {
+    width: fit-content;
+    font-size: 7vh;
+    margin: 0;
+}
+
+.div-div_paragraphe_introduct {
+    width: 100%;
+}
+
+/*Un petit paragraphe d'explication*/
+.div_paragraphe_introduct {
+    float: right;
+    box-shadow: 10px 35px 30px aqua;
+    background-color: #24a3bd;
+    margin-top: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    max-width: 85%;
+    padding: 10px;
+    animation: défilement_vers_la_gauche 2.25s ease forwards;
+}
+
+.paragraphe_introduct {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.no_unfinishedProjects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.no_unfinishedProjects p {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+}
+
+.Tableau_de_bord { 
+    opacity: 0;
+    box-shadow: 10px 35px 30px aqua;
+    background-color: #00a6ff;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: opacity 1s ease;
+}
+
+.tableau_de_bord_visible {
+    opacity: 1;
+}
+
+.Tableau_de_bord_titre {
+    display: flex;
+    justify-content: center;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 60px;
+    color: aqua;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.tableau_de_bord_content {
+    width: 100%;
+}
+
+.content_chiffre_haut_tableau_de_bord {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.span_nb_projet {
+    font-size: 26px;
+    color: whitesmoke;
+}
+
+.p_titre_important {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    text-align: center;
+}
+
+#titreImportant {
+    font-size: 40px;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .Main_Espace-et-CT {
+        font-size: 20vw;
+    }
+    .Card_Main_Title {
+        height:min-content;
+    }
+    .Tableau_de_bord {
+        margin-top: 425px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .div_accueil {
+        animation: défilement_accueil 1.5s ease forwards;
+        box-shadow: 2px 8px 24px black;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    .Card_Main_Title {
+        animation: none;
+    }
+    .Main_Espace-et-CT {
+        font-size: calc(2em + 65px);
+        margin-top: 100px;
+        flex-direction: column;
+    }
+    .wave-accueil {
+        fill: #24a3bd;
+    }
+    .curved-border-Accueil {
+        display: block;
+    }
+    .div_title-et-paragraphe_introduct {
+        background-color: #24a3bd;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    .div_introduct_title {
+        max-width: 100%;
+        border-radius: 0;
+        margin-top: 0;
+        box-shadow: none;
+        background-color: 0;
+    }
+    .introduct_Title {
+        font-size: 11vw;
+    }
+    .div_paragraphe_introduct {
+        box-shadow: none;
+        text-align: center;
+        border-radius: 0;
+        max-width: 100%;
+        margin-top: 0;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    .Tableau_de_bord {
+        margin-top: 60vh;
+        margin-bottom: 30px;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 0px;
+        width: 95%;
+    }
+    .Tableau_de_bord_titre {
+        font-size: 40px;
+    }
+}
+
+/*PAGE TOUS-MES-PROJETS*/
+
+.input_rechercher_div {
+    margin-top: 10px;
+    background: #4ddeca;
+    display: flex;
+    justify-content: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    animation: défilement_vers_le_bas_sans_opacité 2s ease forwards;
+}
+
+#inputRecherche {
+    margin: 20px;
+    margin-top: 25px;
+    width: 70%;
+    height: 25px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    padding-left: 20px;
+    outline: 0;
+    animation: défilement_vers_le_bas 2s ease forwards;
+}
+
+#pResultatRecherche {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/*Div du dessus*/
+.div_tous_mes_projets {
+    background-color:#4ddeca;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 50px;
+    padding: 0;
+}
+
+.projects_management {
+    width: 100%;
+    display: flex;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+.b_projects_management {
+    border: #222 solid 3px;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
+
+.b_projects_management:hover {
+    transform: translateY(-10%) translate3d(0px, 0px, 15px);
+}
+
+.A_projects_management {
+    margin: 10px;
+    color:#222;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+/*Le titre qui est dans la Div ("Voici tous mes projets")*/
+.Titre_div_tous_mes_projets {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    padding-top: 110px;
+    margin-bottom: 60px;
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+}
+
+/*Ca correspond à la div pour les informations des nombres des projets, 
+qui est dans la div de tous les projets*/
+.nombre_projets_div_tous_mes_projets {
+    font-weight: bold;
+    float: right;
+    margin-right: 30px;
+    margin-top: -30px;
+    background-color: #24a3bd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+    animation: apparition-translateY20px 2s ease forwards;
+}
+
+/*Ca correspond au deux nombres, celui des projets finis 
+et celui des projets existant*/
+.nombre_projets_finis-existants_div_tous_mes_projets {
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+/*ca correspond à la phrase "projets finis" qui se trouve après 
+le nombre de projets finis*/
+.projets_finis_div_tous_mes_projets {
+    margin: 5px;
+    margin-bottom: 7px;
+}
+
+/*ca correspond à la phrase "projets existants" qui se trouve après 
+le nombre de projets existants*/
+.projets_existant_div_tous_mes_projets {
+    margin: 5px;
+}
+
+/*Ca correspond à une information, un conseille qui se trouve 
+dans la div div_tous_mes_projets, le conseille est le suivant 
+:"(pour linstant, plusieurs projet ne sont pas encore fait ou terminés, 
+ils ont un # à la fin de leur titre, et un nombre pour leur priorité)"*/
+.projets_non_terminés_div_tous_mes_projets {
+    color: whitesmoke;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-left: 10px;
+    float: left;
+    background-color: #24a3bd;
+    padding: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 5px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+    animation: apparition-translateX30px 2s ease forwards;
+}
+
+/*Ca correspond au svg lui-même, mais contrairement au footer, 
+comme cette fois-ci c'est dans l'autre sens, c'est la vague en elle même*/
+#curved-border {
+    display: flex;
+    align-items: end;
+    width: 100%;
+    background-color: #4ddeca;
+    margin: 0px;
+}
+
+/*Cette classe correspond au path (C'est le dessous de la vague, 
+la vague inversé, celle où on met la couleur du body pour qu'elle se cache)*/
+.wave {
+    fill: #CEEFF4;
+}
+
+/*C'est le conteneur de tous les projets*/
+.projets_container {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 96%);
+    margin: 30px auto;
+    margin-top: 45px;
+    grid-gap: 50px;
+    justify-content: center;
+    border-radius: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    opacity: 1;
+    transition: opacity 0.5s ;
+}
+
+.carte_projets_editing_buttons:hover .editing_buttons {
+    opacity: 1;
+}
+
+.carte_projets_editing_buttons:hover .carte_projet {
+    background-color:#08C5D1;
+    box-shadow: -20px 25px 40px #222 , 0 8px 24px #08C5D1;
+    transform: translateX(3%) translateY(-1.5%) translate3d(0px, 0px, 15px);
+    width: 96%;
+}
+
+/*C'est la carte de chaque projets*/
+.carte_projet {
+    background-color: #24a3bd;
+    width: 96%;
+    border-radius: 15px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px #222;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition:
+    background-color 1s ease,
+    box-shadow 0.33s ease,
+    transform 0.35s ease,
+    width 0.4s ease;
+    opacity: 0;
+    animation: transition_opacité 2s ease forwards;
+    height: fit-content;
+}
+
+/*C'est la div dans une carte_projet dans lequelle se trouve tout 
+le texte (le titre et la description)*/
+.texte_carte_projet {
+    margin-left: 5px;
+    float: left;
+    width: 50%;
+}
+
+/*C'est le titre d'un projet*/
+.titre_de_Projet {
+    overflow: hidden;
+    font-family: 'swap', cursive; 
+    margin: 10px;
+    margin-top: 20px;
+    font-size: 42px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/*C'est la description d'un projet*/
+.description_projet {
+    overflow: hidden;
+    font-family: 'swap', cursive; 
+    margin: 10px;
+    font-size: 20px;
+}
+
+/*C'est une image qui sert à représenter le projet*/
+.img_projet {
+    max-height: 300px;
+    max-width: 95%;
+    object-fit: contain;
+    display: block;
+    border-radius: 10px; 
+    margin: 25px;
+    margin-right: 5px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+}
+
+/*C'est le bouton qui sert à voir le projet*/
+.bouton_projet {
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #317AC1;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+    font-size: 20px;
+    height: 20%;
+    margin-top: 125px;
+}
+
+.editing_buttons {
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    margin-bottom: 15px;
+    opacity: 0;
+    
+}
+
+.remove_project_b {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    border: #f04242 solid 1px;
+    border-radius: 5px;
+}
+
+.remove_project_b:hover {
+    padding: 10px;
+    box-shadow: 1px 5px 5px red;
+}
+
+.edit_project_b {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    border: #222 solid 1px;
+    border-radius: 5px;
+}
+
+.edit_project_b:hover {
+    padding: 10px;
+    box-shadow: 1px 5px 5px black;
+}
+
+/*carte de création de nouveaux projets*/
+
+.nv_carte_projet {
+    background-color: #24a3bd;
+    width: 96%;
+    border-radius: 15px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px #222;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition:
+    background-color 1s ease,
+    box-shadow 0.33s ease,
+    transform 0.35s ease,
+    width 0.4s ease;
+    height: fit-content;
+    display: none;
+    opacity: 0;
+    animation: transition_opacité 2s ease forwards;
+    padding-bottom: 20px;
+}
+
+
+.nv_texte_carte_projet {
+    margin-left: 5px;
+    float: left;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title_priority_carte_projets {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 30px;
+}
+
+.nv_titre_projet {
+    background-color: #24a3bd;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.titre_de_Projet::placeholder {
+    color: black;
+}
+
+
+.nv_description_projet {
+    overflow: hidden;
+    font-family: 'swap', cursive; 
+    font-size: 20px;  
+    height: 60%;
+    width: 96%;
+    margin-left: 30px;
+    background-color: #24a3bd;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.nv_description_projet::placeholder {
+    color: black;
+}
+
+.nv_img_project {
+    font-family: 'swap', cursive; 
+    font-size: 20px;
+    border-radius: 10px; 
+    margin: 25px;
+}
+
+.links_carte_projets {
+    display: flex;
+    flex-direction: column;
+    height:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.nv_bouton_projet {
+    font-family: 'swap', cursive; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #317AC1;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+    font-size: 20px;
+    height: 10%;
+    width: 80%;
+    padding: 10px;
+}
+
+.nv_bouton_projet::placeholder {
+    color: black;
+}
+
+/*Idées de projets*/
+.title_project_ideas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.title_project_ideas:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1100px) {
+    .div_tous_mes_projets {
+        margin-bottom: 10px;
+    }
+    .ensemble_plus_dinfo_div_tous_mes_projets {
+        display: flex;
+        flex-direction: column;
+    }
+    .Titre_div_tous_mes_projets {
+        margin-bottom: 30px;
+    }
+    .nombre_projets_div_tous_mes_projets {
+        width: max-content;
+        margin: 0 auto;
+    }
+    .projets_non_terminés_div_tous_mes_projets {
+        margin-bottom: 20px;
+    }
+    .projets_container {
+        width: 99%;
+        grid-gap: 30px;
+        margin-top: 25px;
+    }
+    .carte_projet {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .texte_carte_projet {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+    }
+    .titre_de_Projet {
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+        font-size: 32px;
+    }
+    .description_projet {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .img_projet {
+        margin-bottom: 0;
+        margin: 0 auto;
+    }
+    .bouton_projet {
+        margin-top: 20px;
+        height: auto;
+        padding: 20px;
+        width: max-content;
+        margin: 20px;
+        margin-left: 85px;  
+        color: black;
+    }
+}
+
+/*Page edit_project */
+.d_title_project_to_edit {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_project_to_edit {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+}
+
+.project_to_edit {
+    color: #00a6ff;
+}
+
+/*PAGE PROGRAMME CALCULER_IMC*/
+.body_calculer_IMC {
+    background-color: #CEEFF4;
+}
+
+.calculer_IMC {
+    background-color: #CEEFF4;
+    display: block;
+    position: relative;
+    margin-top: 50px;
+}
+
+.titre_calculer_IMC {
+    display: flex;
+    justify-content: center;
+    color: blue;
+    font-weight: bold;
+    font-size: calc(2em + 30px);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 25px;
+    text-align: center;
+}
+
+.inputs_calculer_IMC {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputs_calculer_IMC input, label {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.inputs_calculer_IMC input {
+    min-width: 80%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: 0;
+    border-radius: 10px;
+    outline: 0;
+}
+
+.inputs_calculer_IMC label {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+#calculer-imc-btn {
+    border-radius: 5px;
+    border: none;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.svg_et_titre_voir_les_resultat {
+    display: flex;
+    justify-content: center; /* Pour centrer horizontalement */
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.titre_voir_les_resultats {
+    width: 100%;
+}
+
+.titre_voir_les_resultats h2 {
+    position: relative;
+    float: right;
+    color: blue;
+    font-weight: bold;
+    font-size: calc(0.5em + 1.5vw); /* Pour adapter la taille de la police à la largeur de l'écran */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.img_voir_les_resultats {
+    width: 100%;
+}
+
+.svg_calculer_IMC {
+    position: relative;
+    top: -10px;
+    left: 100px;
+    display: block;
+    margin: 0 auto;
+    float: right;
+}
+
+.resultats_calculer_IMC {
+    background-color: #CEEFF4;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+#titre_resultats_calculer_IMC {
+    color: blue;
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
+    margin-bottom: 50px;
+    padding-top: 25px;
+}
+
+#plus-dinfo_resultat_calculer_IMC {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    margin-left: 20px;  
+    margin-right: 20px;
+}
+
+#phrase_plus-dinfo_resultat_calculer_IMC {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #08C5D1;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px black;
+}
+
+.visible {
+    opacity: 1 !important;
+}
+
+@media screen and (max-width: 390px) {
+    .titre_voir_les_resultats {
+        display: none;
+    }
+    .svg_calculer_IMC {
+        height: 220px;
+        position: relative;
+        left: -65px;
+        display: flex;
+        justify-content: center;
+    }
+    .titre_calculer_IMC {
+        font-size: 40px;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .calculer_IMC {
+        margin-top: 0;
+    }
+    .inputs_calculer_IMC {
+        margin: 0;
+    }
+    .resultats_calculer_IMC {
+        flex-direction: column;
+        margin: 0;
+    }
+    #titre_resultats_calculer_IMC {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .titre_voir_les_resultats {
+        display: none;
+    }
+    .svg_calculer_IMC {
+        position: relative;
+        left: 0;
+    }
+    .img_voir_les_resultats {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/*Page yt video importeur */
+.title_yt_video_importer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #4ddeca;
+}
+
+.d_form-video-importer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.form-video-importer {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-video-importer label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.inpt_link_yt_importer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: #222 solid 1px;
+    width: 80%;
+}
+
+.inpt_sub_yt_importer {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.try_again {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.try_again button {
+    border: #222 solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.try_again a {
+    font-style: normal;
+    color: #222;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.try_again button:hover {
+    transform: translateY(-5px);
+    box-shadow: #222 -5px 5px 10px;
+}
+
+.container_settings_to_video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.settings_to_video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-top: 20px;
+    flex-direction: column;
+    background-color: #00a6ff;
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: #222 -15px 15px 20px;
+}
+
+.infos_video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+}
+
+.format_form_settings {
+    display: flex;
+    flex-direction: row;
+}
+
+.format_form_settings label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.form-settings-video-importer select {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/*Are the servers ok ?*/
+.title_server_status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.title_server_status h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+}
+
+.title_server_status h1:hover {
+    text-decoration: underline;
+}
+
+.servers_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.formQueryServers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.formQueryServers button {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+}
+
+.formQueryServers button:hover {
+    text-decoration: underline;
+}
+
+.all_servers {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.choose_serverD {
+    justify-self: center;
+    align-self: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.choose_serverD:hover button {
+    text-decoration: underline;
+}
+
+.server_entity {
+    background-color:#4ddeca;
+    width: 95%;
+    align-self: start;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    display: none;
+    flex-direction: column;
+}
+
+/*PAGE 404 NOT FOUND*/
+.main_404 {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_404 {
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: #1383d3;
+    margin: 0 auto;
+    padding: 30px;
+    width: 90%;
+    border-radius: 40px;
+    box-shadow: 2px 5px 14px black;
+    animation: scale_div_404 3s infinite ease;
+}
+
+.titre_div_404 {
+    font-weight: bold;
+    font-size: 120px;
+    animation: scale_titre_404 1.25s infinite ease;
+}
+
+.p_div_404 {
+    font-size: 35px;
+    font-weight: bold;
+    animation: scale_p_404 2s infinite ease;
+}
+
+.a_p_div_404 {
+    background-color: #222;
+    padding: 6px;
+    border-radius: 10px;
+    color: whitesmoke;
+}
+
+/*PAGE A PROPOS*/
+.div_grid_a-propos {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.grid_a-propos {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    height: 800px;
+    margin: 10px;
+    margin-top: 79px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: whitesmoke;
+    border-radius: 5px;
+}
+
+.Presentation_grid_a-propos { 
+    color: rgb(219, 255, 245);
+    grid-area: 1 / 1 / 4 / 8;
+    background-color: #169;
+    animation: apparition_Presentation_grid_a-propos 2s ease forwards;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.Presentation_grid_a-propos_div-h1-img {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.Presentation_grid_a-propos_div-img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.img_Presentation_grid_a-propos {
+    width: 8.50vw;
+    margin-left: 40px;
+    border-top-left-radius: 20px;
+}
+
+.Presentation_grid_a-propos_div-h1 {
+    width: 100%;
+    font-size: 1.80vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.h1_Presentation_grid_a-propos {
+    justify-content: center;
+}
+
+.p_Presentation_grid_a-propos_div-p {
+    position: absolute;
+    top: 50%;
+    height: 50%;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+.Infos_suplémentaires_grid_a-propos { 
+    grid-area: 4 / 5 / 6 / 8; 
+    background-color: rgb(230, 28, 28);
+    animation: apparition_Infos_suplémentaires_grid_a-propos 2s ease forwards;
+    border-radius: 20px;
+}
+
+.div_Infos_suplémentaire_h1 h1 {
+    font-size: 35px;
+}
+
+.list_div_Infos_suplémentaire_chiffres {
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chiffres {
+    margin-bottom: 20px;
+    margin-top: -20px;
+}
+
+.Titre_grid_a-propos { 
+    grid-area: 4 / 1 / 6 / 5; 
+    border: 4.5px solid rgb(226, 40, 40);
+    background-color: #dbf0f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: animation 2s ease reverse;
+    border-radius: 20px;
+    animation: apparition_Titre_grid_a-propos 2s ease forwards;
+    margin: 0;
+}
+
+.Titre_grid_a-propos:hover > h1 {
+    animation: bond 1s ease forwards;
+}
+
+.Titre_grid_a-propos h1 {
+    font-size: 8.5vw;
+}
+
+.E {
+    color: red;
+}
+
+.s {
+    color: orangered;
+}
+
+.p {
+    color: orange;
+}
+
+.a {
+    color: yellow;
+}
+
+.c {
+    color: yellowgreen;
+}
+
+.e {
+    color: blue;
+}
+
+._ {
+    color: blueviolet;
+}
+
+.C {
+    color: violet;
+}
+
+.T {
+    color: magenta;
+}
+
+.Lien_portfolio_grid_a-propos { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: 6 / 1 / 7 / 8; 
+    background-color: #CEEFF4;
+    width: 100%;
+    border-radius: 20px;
+    border: 4.5px solid rgb(56, 56, 239);
+    color: blue;
+    animation: apparition_Lien_portfolio_grid_a-propos 2s ease forwards ;
+}
+
+.titre_Lien_portfolio_grid_a-propos {
+    font-size: 6.75vw;
+    margin: 0;
+    border-bottom: none;
+}
+
+.a_titre_Lien_portfolio_grid_a-propos {
+    text-decoration: none;
+    color: blue;
+    margin-left: 50px;
+    transition: border-bottom 0.75s ease-in-out;
+}
+
+.titre_Lien_portfolio_grid_a-propos:hover {
+    animation: battementDeCoeur 2s ease-in-out ;
+}
+
+.titre_Lien_portfolio_grid_a-propos:hover > .a_titre_Lien_portfolio_grid_a-propos {
+    border-bottom: 4px solid whitesmoke;
+}
+
+@media screen and (max-width: 390px) {
+    .grid_a-propos {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    .Presentation_grid_a-propos { 
+        color: rgb(219, 255, 245);
+        background-color: #169;
+        animation: apparition_Presentation_grid_a-propos 2s ease forwards;
+        display: flex;
+        justify-content: center;
+        height: 50vh;
+        border-radius: 20px; 
+    }
+    .Presentation_grid_a-propos_div-h1-img {
+        height: 50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .img_Presentation_grid_a-propos {
+        scale: 4;
+        border-top-left-radius: 0px;
+    }
+    .Titre_grid_a-propos { 
+        height: 125px;
+    }
+    .Titre_grid_a-propos h1 { 
+        font-size: 60px;
+    }
+}
+
+/*page compteur*/
+.body_compteur {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden ;
+}
+
+.h1_compteur_générale {
+    position:relative;
+    justify-content: center;
+    width: 100vw;
+    top: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.div_titre_compteur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.titre_compteurG {
+    position: relative;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    text-align: center;
+}
+
+.ensemble_des_compteurs_grosse_div {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.ensemble_des_compteurs_container {
+    width: 92.5%;
+    background-color: #8757da;
+    border-radius: 30px;
+    box-shadow: 0 6px 24px #222;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.compteurs {
+    background-color: #c87c56;
+    width: 25%;
+    border-radius: 15px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 6px 24px #222;
+    margin: 30px;
+    height: 300px;
+    font-family: 'Courier New', Courier, monospace;
+    color: whitesmoke;
+    transition: scale 0.75s ease;
+}
+
+.compteurs:hover {
+    scale: 1.15;
+}
+
+.compteurs_partie_titre {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.compteurs_titre_div {
+    width: 90%;
+    height: fit-content;
+    margin-top: 5px;
+}
+
+.titre_compteur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.compteurs_partie_nombre {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.compteurs_nombre_div {
+    width: fit-content;
+    height: fit-content;
+}
+
+.nombre_compteurs {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.animetedBouton {
+    animation: animetedBouton 0.5s ease; 
+}
+
+.total_compteurs_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p_total_compteurs {
+    position: relative;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    text-align: center;
+}
+
+#totalCompteurs {
+    color: rgb(226, 180, 180);
+    font-size: 35px;
+}
+
+
+/*Toutes les animations !*/
+@keyframes animetedBouton {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.10);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes transition_opacité {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes défilement_vers_le_bas {
+    from {
+    transform: translateY(-100%);
+    opacity: 0;
+    }
+    to {
+    transform: translateY(0%);
+    opacity: 1;
+    }
+
+}
+
+@keyframes défilement_vers_le_haut {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+        }
+        to {
+        transform: translateY(0%);
+        opacity: 1;
+        }
+}
+
+@keyframes défilement_vers_le_bas_sans_opacité {
+    from {
+    transform: translateY(-100%);
+    }
+    to {
+    transform: translateY(0%);
+    }
+
+}
+
+@keyframes défilement_vers_la_droite {
+    from {
+    transform: translateX(-100%);
+    opacity: 0;
+    }
+    to {
+    transform: translateX(0%);
+    opacity: 1;
+    }
+
+}
+
+@keyframes défilement_vers_la_gauche {
+    from {
+    transform: translateX(100%);
+    opacity: 0;
+    }
+    to {
+    transform: translateX(0%);
+    opacity: 1;
+    }
+
+}
+
+@keyframes apparition-translateY20px {
+    from {
+        opacity: 0;
+        position: relative;
+        top: 20px;
+    }
+    to {
+        position: relative;
+        top: 0px;
+    }
+}
+
+@keyframes apparition-translateX30px {
+    from {
+        opacity: 0;
+        position: relative;
+        left: 30px;
+    }
+    to {
+        position: relative;
+        left: 0;
+    }
+}
+
+/*animation de la page 404*/
+@keyframes scale_div_404 {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(0.80) rotate(30deg);
+    }
+    50% {
+        transform: scale(1) rotate(0deg);
+      }
+    75% {
+        transform: scale(0.80) rotate(-30deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+@keyframes scale_titre_404 {
+    0% {
+        transform: scale(0.80);
+      }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.80);
+    }
+}
+
+@keyframes scale_p_404 {
+    0% {
+        transform: scale(0.70) translateY(40px);
+      }
+    50% {
+        transform: scale(1) translateY(-20px);
+    }
+    100% {
+        transform: scale(0.70) translateY(40px);
+    }
+}
+
+/*animations de la page à propos*/
+@keyframes apparition_Presentation_grid_a-propos {
+    from {
+        opacity: 0;
+        transform: translateY(-100%) translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY() translateX(0px);
+    }
+}
+
+@keyframes apparition_Infos_suplémentaires_grid_a-propos {
+    from {
+        opacity: 0;
+        transform: translateX(100%) translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX() translateY(0px);
+    }
+}
+
+@keyframes apparition_Titre_grid_a-propos {
+    from {
+        opacity: 0;
+        transform: translateX(-100%) translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX() translateY(0px);
+    }
+}
+
+@keyframes apparition_Lien_portfolio_grid_a-propos {
+    from {
+        opacity: 0;
+        transform: translateY(100%) translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY() translateX(0px);
+    }
+}
+
+@keyframes bond {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    90% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes battementDeCoeur {
+    0% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.1);
+      }
+      35% {
+        transform: scale(0.9);
+      }
+      50% {
+        transform: scale(1.15);
+      }
+      60% {
+        transform: scale(0.95);
+      }
+      75% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+}
