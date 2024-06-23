@@ -3,6 +3,6 @@ __pycache__/
 *.sqlite3
 *.log
 .env
-/src/taolamoureux/static/
-/src/media/
-/src/taolamoureux/settings.py
+/taolamoureux/src/taolamoureux/static/
+/taolamoureux/src/media/
+/taolamoureux/src/taolamoureux/settings.py
