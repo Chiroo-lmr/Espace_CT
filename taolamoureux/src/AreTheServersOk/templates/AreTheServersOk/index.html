@@ -11,7 +11,7 @@
     {% include 'partials/navbar.html' %}
     <main>
         <div class="title_server_status">
-            <h1>Are the servers ok ?</h1>
+            <h1><a href="{% url 'are-the-servers-ok' %}" style="color: black;">Are the servers ok ?</a></h1>
         </div>
         <div class="servers_container">
             {% if queryDone == False %}

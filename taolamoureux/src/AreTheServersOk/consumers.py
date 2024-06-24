@@ -26,9 +26,9 @@ class serverConsumer(AsyncWebsocketConsumer):
                 await self.send_error(str(e))
                 return
 
-        await self.refresh_server_stats()
+        await self.refresh_server_stats( server_name)
 
-    async def refresh_server_stats(self):
+    async def refresh_server_stats(self, server_name):
         while True:
             try:
                 uptime = await self.ssh_conn.run('uptime')
@@ -46,6 +46,7 @@ class serverConsumer(AsyncWebsocketConsumer):
                 cpu_idle = last_line[-3]
                 cpu_usage = 100 - int(cpu_idle)
                 screens = screens.stdout.strip()
+                server = await sync_to_async(Server.objects.get)(name=server_name)
 
                 response_data = {
                     'uptime': uptime,
@@ -54,10 +55,13 @@ class serverConsumer(AsyncWebsocketConsumer):
                     'total_memory': int(total_memory) / 1000,
                     'screens': screens if screens else None,
                     'errors': None,
+                    'username': server.username
                 }
+
             except asyncssh.Error as e:
+                print("Error occurred:", str(e))
                 response_data = {
-                    'uptime': None,
+                    'uptime': "None",
                     'cpu_usage': None,
                     'used_memory': None,
                     'total_memory': None,
@@ -76,7 +80,10 @@ class serverConsumer(AsyncWebsocketConsumer):
             'screens': None,
             'errors': error_message,
         }
-        await self.send(text_data=json.dumps(response_data))
+        try:
+            await self.send(text_data=json.dumps(response_data))
+        except Exception as e:
+            print(f"Error sending error message: {str(e)}")
 
     async def disconnect(self, close_code):
         if hasattr(self, 'ssh_conn'):

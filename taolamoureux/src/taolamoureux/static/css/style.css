@@ -1484,6 +1484,12 @@ le texte (le titre et la description)*/
     flex-direction: column;
 }
 
+.server_info {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 900;
+}
+
 /*PAGE 404 NOT FOUND*/
 .main_404 {
     height: 80vh;
