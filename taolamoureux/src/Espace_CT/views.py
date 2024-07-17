@@ -268,12 +268,10 @@ def ytVideoImporter(request):
                     print(f"An error has occurred: {e}")
                     context = {
                         "error": "Problème de lien ou de connexion"
-                    } 
+                    }
             elif "import" in request.POST:
                 SAVE_PATH = os.path.join(settings.MEDIA_ROOT, 'videos_yt_imports')
                 link = request.POST.get("link")
-                download_link = None
-                download_filename = None
                 try:
                     ydl_opts = {
                         'outtmpl': os.path.join(SAVE_PATH, '%(title)s.%(ext)s'),
@@ -291,12 +289,14 @@ def ytVideoImporter(request):
                     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                         info_dict = ydl.extract_info(link, download=False)
                         filename = ydl.prepare_filename(info_dict)
+                        # Correctly rename the file if it's audio
                         if request.POST.get("options[]") == "audio":
-                            filename = filename.replace(".webm", ".mp3")
-                        download_link = os.path.join('/media/videos_yt_imports', filename.split("/")[-1])
-                        download_filename = filename.split("/")[-1]
+                            filename = filename.replace(".webm", ".mp3").replace(".m4a", ".mp3")
                         download = ydl.download([link])
-                    file_path = os.path.join(SAVE_PATH, filename)
+                        download_filename = os.path.basename(filename)
+                        file_path = os.path.join(SAVE_PATH, download_filename)
+                    
+                    # Ensure we open the correct file type
                     response = FileResponse(open(file_path, 'rb'), as_attachment=True)
                     return response
 
