@@ -18,23 +18,31 @@
         <div class="MCServerContainer">
             <h1 class="NameMCServer" style="color: green;">{{ server.name }} :</h1>
             <div class="logsMC" id="logsMC">
-                Logs
+                Logs <br>
                 <div class="inputRcon">
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <input type="search" class="inputRconSearch" placeholder="/type a command here >>">
-                    </form>
+                    
+                    <input type="search" class="inputRconSearch" placeholder="/type a command here >>" id="rconcommand">
                 </div>
             </div>
             <div class="InfosMCServer">
                 <div class="playersMCServer">
-                    <h1>0/10 joueurs connectés</h1>
+                    <h1>{{ server.status.players.online }}/{{ server.status.players.max }} joueurs connectés</h1>
                 </div>
+                <div class="otherInfoMCServer">
+                    <p>
+                        Version : {{ server.status.version.name }} <br>
+                        Motd : {{ server.status.motd.raw.text }} <br>
+                        Latency : {{ server.status.latency }}ms <br>
+                    </p>
+                </div>
+
             </div>
             <div class="ButtonMCServer">
-                <div class="offMCServer">
-                    <input type="button" name="shutdown" id="shutdown" class="shutdown_poweron">
-                </div>
+                <form action="" method="POST" class="StopMCServer">
+                    {% csrf_token %}
+                    <button name="shutdown" type="submit" >Shutdown</button>
+                    <input type="hidden" value="{{server.name}}" name="ServerName">
+                </form>
             </div>
         </div>
         {% else %}
@@ -47,6 +55,40 @@
 <script>
     var scrollableDiv = document.getElementById("logsMC");
     scrollableDiv.scrollTop = scrollableDiv.scrollHeight;
+    
+    document.addEventListener('DOMContentLoaded', (event) => {
+        let url = `ws://${window.location.host}/ws/MC-server/`;
+        var inputRcon = document.getElementById('rconcommand');
 
+        const serverSocket = new WebSocket(url);
+
+        serverSocket.onopen = function() {
+            console.log('WebSocket connection established');
+            // Ici vous pouvez envoyer une commande RCON
+            // serverSocket.send(JSON.stringify({}));
+        };
+        serverSocket.onmessage = function(e) {
+            let data = JSON.parse(e.data);
+            console.log(data);
+        };
+
+        serverSocket.onerror = function(error) {
+            console.log('WebSocket error: ', error);
+        };
+
+        serverSocket.onclose = function() {
+            console.log('WebSocket connection closed');
+        };
+        inputRcon.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {  // S'assurer que l'événement n'est déclenché que sur la touche "Enter"
+                if (inputRcon.value != "") {
+                    serverSocket.send(JSON.stringify({
+                        'command': inputRcon.value
+                    }))
+                    inputRcon.value = ""
+                }
+            }
+        });
+    });
 </script>
 </html>

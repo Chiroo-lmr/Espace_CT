@@ -1,6 +1,6 @@
 from django.urls import re_path
 from . import consumers
 
-websocket_urlpatterns = [
-    re_path(r'ws/socket-server/', consumers.serverConsumer.as_asgi()),
+Awebsocket_urlpatterns = [
+    re_path(r'ws/are-the-servers-ok/', consumers.serverConsumer.as_asgi()),
 ]

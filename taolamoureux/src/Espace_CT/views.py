@@ -8,6 +8,8 @@ from django.core.files.storage import default_storage
 import yt_dlp
 from django.conf import settings
 from datetime import date
+from mcstatus import JavaServer
+from mcipc.rcon.je import Biome, Client 
 
 def get_projects_stats():
     Projects = Project.objects.all()
@@ -98,7 +100,7 @@ def Projects(request):
         return redirect('/auth')
 
 def edit_project(request, item_title):
-    if request.user.is_authenticated:
+    if request.user.is_superuser:
         numberProject, finishedProjects, unfinishedProjects, Projects, ImportantProject, lessImportantProject = get_projects_stats()
         project_to_edit = Projects.get(title=item_title)
         if request.method == "POST":
@@ -311,12 +313,32 @@ def ytVideoImporter(request):
         return redirect('/auth')
 
 def minecraftServer(request):
-    if request.user.is_authenticated:
+    if request.user.is_superuser:
         MCServers = MinecraftServer.objects.all()
-        
+        if request.method == "POST":
+            if "shutdown" in request.POST:
+                ServerName = request.POST.get("ServerName")
+                server = MCServers.get(name=ServerName)
+                ipServer = server.ip
+                portServer = server.rcon_port
+                ipPortServer = str(ipServer) + ":" + str(portServer)
+                print(ipPortServer)
+                print(server.password)
+                with Client(ipServer, int(portServer), passwd=server.password) as client:
+                    client.stop()
+        for server in MCServers:
+            server_ip_port = str(server.ip) + ":" + str(server.server_port)
+            MCserver = JavaServer.lookup(server_ip_port)
+            try:
+                server.status = MCserver.status()
+                server.on = True
+                server.status.latency = round(server.status.latency, 2)
+            except:
+                server.status = False
+                server.on = False
         context = {
             "servers": MCServers
         }
         return render(request, "Espace_CT/minecraft-server.html", context)
     else:
-        return redirect('/auth')
+        return redirect('/')

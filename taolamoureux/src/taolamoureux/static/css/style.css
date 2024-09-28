@@ -1269,22 +1269,31 @@ le texte (le titre et la description)*/
 }
 
 .logsMC {
+    display: flex;
     overflow: scroll;
     margin-left: 20px;
     margin-right: 20px;
     padding: 20px;
     height: 500px;
     max-height: 500px;
+    width: 95%;
     background-color: #222;
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
+    flex-direction: column;
+}
+
+.inputRcon {
+    width: 100%;
+    height: auto;
 }
 
 .inputRconSearch {
     width: 100%;
     margin-top: 10px;
     height: 20px;
+    font-size: 16px;
     background-color: #222;
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
@@ -1294,11 +1303,47 @@ le texte (le titre et la description)*/
 .InfosMCServer {
     display: flex;
     justify-items: auto;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.playersMCServer {
+    font-family: 'Courier New', Courier, monospace;
+}
 
+.otherInfoMCServer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    height: auto;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    flex-direction: column;
+}
 
+.ButtonMCServer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 40px;
+    width: 100%;
+}
+
+.StopMCServer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 60px;
+    background-color: red;
+    border-radius: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 900;
+}
 
 @media screen and (max-width: 390px) {
     .titre_voir_les_resultats {

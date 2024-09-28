@@ -16,6 +16,8 @@ class Project(models.Model):
 class MinecraftServer(models.Model):
     name = models.CharField(max_length=100)
     ip = models.CharField(max_length=300)
+    server_port = models.CharField(max_length=5, default='25565')
+    rcon_port = models.CharField(max_length=5, default='25575')
     password = models.CharField(max_length=200, default='pwd')
     def __str__(self):
-        return self.title
+        return self.name
