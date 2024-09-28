@@ -44,10 +44,12 @@ class serverConsumer(AsyncWebsocketConsumer):
                 cpu_lines = cpu_output.stdout.strip().split('\n')
                 last_line = cpu_lines[-1].split()
                 cpu_idle = last_line[-3]
-                cpu_usage = 100 - int(cpu_idle)
+                cpu_usage = int(cpu_idle)
                 screens = screens.stdout.strip()
                 server = await sync_to_async(Server.objects.get)(name=server_name)
-
+                print(cpu_output)
+                print(cpu_usage)
+                print(cpu_idle)
                 response_data = {
                     'uptime': uptime,
                     'cpu_usage': cpu_usage,

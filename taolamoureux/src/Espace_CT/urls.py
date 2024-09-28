@@ -9,5 +9,6 @@ urlpatterns = [
     path('Projects/edit_project/<str:item_title>', edit_project, name="edit_project"),
     path('Projects/Counter/', counter, name="counter"),
     path('Projects/IMC_calculator/', IMC, name="IMC"),
-    path('Projects/yt-video-importer/', ytVideoImporter, name="yt-video-importer")
+    path('Projects/yt-video-importer/', ytVideoImporter, name="yt-video-importer"),
+    path('Projects/minecraft-server', minecraftServer, name="minecraft-server")
 ]

@@ -1251,6 +1251,55 @@ le texte (le titre et la description)*/
     opacity: 1 !important;
 }
 
+/* Minecraft server status */
+.MCServerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding-bottom: 40px;
+}
+
+.NameMCServer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+}
+
+.logsMC {
+    overflow: scroll;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    height: 500px;
+    max-height: 500px;
+    background-color: #222;
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+.inputRconSearch {
+    width: 100%;
+    margin-top: 10px;
+    height: 20px;
+    background-color: #222;
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    outline: none;
+}
+
+.InfosMCServer {
+    display: flex;
+    justify-items: auto;
+    flex-direction: row;
+}
+
+
+
+
 @media screen and (max-width: 390px) {
     .titre_voir_les_resultats {
         display: none;

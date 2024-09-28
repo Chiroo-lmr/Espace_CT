@@ -13,3 +13,9 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+class MinecraftServer(models.Model):
+    name = models.CharField(max_length=100)
+    ip = models.CharField(max_length=300)
+    password = models.CharField(max_length=200, default='pwd')
+    def __str__(self):
+        return self.title

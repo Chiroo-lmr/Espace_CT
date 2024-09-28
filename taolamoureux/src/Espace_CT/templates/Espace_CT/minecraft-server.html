@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft server status</title>
+</head>
+<body>
+    {% include 'partials/navbar.html' %}
+    <main>
+        <div class="title_server_status">
+            <h1><a href="{% url 'minecraft-server' %}" style="color: black;">Minecraft servers status</a></h1>
+        </div>
+        {% for server in servers %}
+        {% if server.on %}
+        <div class="MCServerContainer">
+            <h1 class="NameMCServer" style="color: green;">{{ server.name }} :</h1>
+            <div class="logsMC" id="logsMC">
+                Logs
+                <div class="inputRcon">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="search" class="inputRconSearch" placeholder="/type a command here >>">
+                    </form>
+                </div>
+            </div>
+            <div class="InfosMCServer">
+                <div class="playersMCServer">
+                    <h1>0/10 joueurs connectés</h1>
+                </div>
+            </div>
+            <div class="ButtonMCServer">
+                <div class="offMCServer">
+                    <input type="button" name="shutdown" id="shutdown" class="shutdown_poweron">
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <h1 class="NameMCServer" style="display: flex; justify-content: center; color: red;">{{ server.name }} est hors ligne</h1>
+        {% endif %}
+        {% endfor %}
+    </main>
+    {% include 'partials/footer.html' %}
+</body>
+<script>
+    var scrollableDiv = document.getElementById("logsMC");
+    scrollableDiv.scrollTop = scrollableDiv.scrollHeight;
+
+</script>
+</html>

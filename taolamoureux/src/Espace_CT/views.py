@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import ProjectForm
-from .models import Project
+from .models import *
 import os
 from django.http import FileResponse
 from django.core.files.storage import default_storage
@@ -307,5 +307,16 @@ def ytVideoImporter(request):
                     }
         
         return render(request, "Espace_CT/yt_import.html", context)
+    else:
+        return redirect('/auth')
+
+def minecraftServer(request):
+    if request.user.is_authenticated:
+        MCServers = MinecraftServer.objects.all()
+        
+        context = {
+            "servers": MCServers
+        }
+        return render(request, "Espace_CT/minecraft-server.html", context)
     else:
         return redirect('/auth')
