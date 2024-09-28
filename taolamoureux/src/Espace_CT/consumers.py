@@ -1,7 +1,10 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
+from mcipc.rcon.je import Client
+from .models import MinecraftServer
+from channels.db import database_sync_to_async
 from mcstatus import JavaServer
-from mcipc.rcon.je import Biome, Client 
+
 
 class MCserverConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -10,21 +13,42 @@ class MCserverConsumer(AsyncWebsocketConsumer):
             'type': 'connection_established',
             'message': 'Connection established. Ready to receive rcon commands.',
         }))
-        await self.send_status()
 
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
         command = text_data_json['command']
         s_command = "/" + str(command)
-        print(s_command)
+        serverName = text_data_json['server']
 
-    async def send_status():
-        while True:
-            pass
+        # Récupérer le serveur de manière asynchrone
+        server = await self.get_server(serverName)
+
+        if server:
+            ipServer = server.ip
+            portServer = server.rcon_port
+
+            # Utiliser le client RCON
+            with Client(ipServer, int(portServer), passwd=server.password) as client:
+                response = client.run(s_command)
+            await self.send(text_data=json.dumps({
+                'response': response
+            }))
+        else:
+            await self.send_error(f"Server '{serverName}' not found.")
+
+    
+
+    @database_sync_to_async
+    def get_server(self, server_name):
+        # Récupérer le serveur de la base de données
+        try:
+            return MinecraftServer.objects.get(name=server_name)
+        except MinecraftServer.DoesNotExist:
+            return None
 
     async def send_error(self, error_message):
         response_data = {
-
+            'error': error_message
         }
         try:
             await self.send(text_data=json.dumps(response_data))

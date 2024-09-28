@@ -18,9 +18,11 @@
         <div class="MCServerContainer">
             <h1 class="NameMCServer" style="color: green;">{{ server.name }} :</h1>
             <div class="logsMC" id="logsMC">
-                Logs <br>
+                <div class="response_logs" id="responses">
+
+                </div>
                 <div class="inputRcon">
-                    
+                    <input type="hidden" id="serverName" value="{{ server.name }}">
                     <input type="search" class="inputRconSearch" placeholder="/type a command here >>" id="rconcommand">
                 </div>
             </div>
@@ -59,7 +61,9 @@
     document.addEventListener('DOMContentLoaded', (event) => {
         let url = `ws://${window.location.host}/ws/MC-server/`;
         var inputRcon = document.getElementById('rconcommand');
-
+        var serverName = document.getElementById('serverName');
+        var dresponses = document.getElementById('responses');
+        
         const serverSocket = new WebSocket(url);
 
         serverSocket.onopen = function() {
@@ -69,7 +73,11 @@
         };
         serverSocket.onmessage = function(e) {
             let data = JSON.parse(e.data);
-            console.log(data);
+            var response = data['response']
+            console.log(response);
+            if (response){
+                dresponses.innerHTML += response + "<br>"
+            }
         };
 
         serverSocket.onerror = function(error) {
@@ -83,8 +91,10 @@
             if (event.key === 'Enter') {  // S'assurer que l'événement n'est déclenché que sur la touche "Enter"
                 if (inputRcon.value != "") {
                     serverSocket.send(JSON.stringify({
-                        'command': inputRcon.value
+                        'command': inputRcon.value,
+                        'server': serverName.value
                     }))
+                    dresponses.innerHTML += "/" + inputRcon.value + "<br>"
                     inputRcon.value = ""
                 }
             }
