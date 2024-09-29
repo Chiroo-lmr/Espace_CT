@@ -301,6 +301,20 @@ def ytVideoImporter(request):
                     
                     # Ensure we open the correct file type
                     response = FileResponse(open(file_path, 'rb'), as_attachment=True)
+                    
+                    # Fonction pour supprimer le fichier après envoi
+                    def delete_file(path):
+                        if os.path.exists(path):
+                            os.remove(path)
+
+                    # Utiliser une fonction de rappel pour supprimer le fichier après l'envoi de la réponse
+                    def on_close_callback():
+                        delete_file(file_path)
+                        original_close()
+
+                    original_close = response.close
+                    response.close = on_close_callback
+
                     return response
 
                 except Exception as e:
