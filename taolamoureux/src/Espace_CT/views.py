@@ -103,6 +103,8 @@ def edit_project(request, item_title):
     if request.user.is_superuser:
         numberProject, finishedProjects, unfinishedProjects, Projects, ImportantProject, lessImportantProject = get_projects_stats()
         project_to_edit = Projects.get(title=item_title)
+        old_priority = project_to_edit.priority
+        print("OLDD PRIORITY" + str(old_priority))
         if request.method == "POST":
             old_image = project_to_edit.images
             form = ProjectForm(request.POST, request.FILES, instance=project_to_edit)
@@ -117,13 +119,12 @@ def edit_project(request, item_title):
                 description_form = form.cleaned_data['description']
                 url_placeholder_form = form.cleaned_data['url_placeholder']
                 url_form = form.cleaned_data['url']
-                old_priority = Projects.get(title=title_form).priority
                 date = form.cleaned_data['date']
                 image_form = form.cleaned_data['images']
                 if image_form != old_image:
-                    print(f"/Users/comptepourjeux/Documents/Code/Projets_codes/chiroo.fr/chiroo/src/media/{old_image}")
+                    print(f"/Users/comptepourjeux/Documents/Code/Projets_codes/tao-lamoureux/taolamoureux/src/media/{old_image}")
                     try:
-                        default_storage.delete(str(f"/Users/comptepourjeux/Documents/Code/Projets_codes/chiroo.fr/chiroo/src/media/{old_image}"))
+                        default_storage.delete(str(f"/Users/comptepourjeux/Documents/Code/Projets_codes/tao-lamoureux/taolamoureux/src/media/{old_image}"))
                     except:
                         print("the delete did not work")
                 else:
