@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    let url = `ws://${window.location.host}/wss/are-the-servers-ok/`;
+    let url = `wss://${window.location.host}/wss/are-the-servers-ok/`;
     const servers = document.querySelectorAll('.all_servers');
 
     servers.forEach(server => {
