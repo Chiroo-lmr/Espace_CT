@@ -60,44 +60,47 @@
     
     document.addEventListener('DOMContentLoaded', (event) => {
         let url = `wss://${window.location.host}/wss/MC-server/`;
-        var inputRcon = document.getElementById('rconcommand');
-        var serverName = document.getElementById('serverName');
-        var dresponses = document.getElementById('responses');
-        
-        const serverSocket = new WebSocket(url);
-
-        serverSocket.onopen = function() {
-            console.log('WebSocket connection established');
-            // Ici vous pouvez envoyer une commande RCON
-            // serverSocket.send(JSON.stringify({}));
-        };
-        serverSocket.onmessage = function(e) {
-            let data = JSON.parse(e.data);
-            var response = data['response']
-            console.log(response);
-            if (response){
-                dresponses.innerHTML += response + "<br>"
-            }
-        };
-
-        serverSocket.onerror = function(error) {
-            console.log('WebSocket error: ', error);
-        };
-
-        serverSocket.onclose = function() {
-            console.log('WebSocket connection closed');
-        };
-        inputRcon.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {  // S'assurer que l'événement n'est déclenché que sur la touche "Enter"
-                if (inputRcon.value != "") {
-                    serverSocket.send(JSON.stringify({
-                        'command': inputRcon.value,
-                        'server': serverName.value
-                    }))
-                    dresponses.innerHTML += "/" + inputRcon.value + "<br>"
-                    inputRcon.value = ""
+        var mservers = document.querySelectorAll('.MCServerContainer')
+        mservers.forEach(server => {
+            const serverSocket = new WebSocket(url);
+            var inputRcon = server.querySelector('#rconcommand');
+            var serverName = server.querySelector('#serverName');
+            var dresponses = server.querySelector('#responses');
+    
+            serverSocket.onopen = function() {
+                console.log('WebSocket connection established');
+                // Ici vous pouvez envoyer une commande RCON
+                // serverSocket.send(JSON.stringify({}));
+            };
+            serverSocket.onmessage = function(e) {
+                let data = JSON.parse(e.data);
+                var response = data['response']
+                console.log(response);
+                if (response){
+                    dresponses.innerHTML += response + "<br>"
                 }
-            }
+            };
+    
+            serverSocket.onerror = function(error) {
+                console.log('WebSocket error: ', error);
+            };
+    
+            serverSocket.onclose = function() {
+                console.log('WebSocket connection closed');
+            };
+            inputRcon.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {  // S'assurer que l'événement n'est déclenché que sur la touche "Enter"
+                    if (inputRcon.value != "") {
+                        serverSocket.send(JSON.stringify({
+                            'command': inputRcon.value,
+                            'server': serverName.value
+                        }))
+                        dresponses.innerHTML += "/" + inputRcon.value + "<br>"
+                        inputRcon.value = ""
+                    }
+                }
+            });
+
         });
     });
 </script>

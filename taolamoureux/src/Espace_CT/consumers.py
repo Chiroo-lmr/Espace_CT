@@ -28,8 +28,11 @@ class MCserverConsumer(AsyncWebsocketConsumer):
             portServer = server.rcon_port
 
             # Utiliser le client RCON
-            with Client(ipServer, int(portServer), passwd=server.password) as client:
-                response = client.run(s_command)
+            try:
+                with Client(ipServer, int(portServer), passwd=server.password) as client:
+                    response = client.run(s_command)
+            except:
+                response = "The command isn't known."
             await self.send(text_data=json.dumps({
                 'response': response
             }))

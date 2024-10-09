@@ -10,7 +10,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'taolamoureux.settings')
 websocket_urlpatterns = Awebsocket_urlpatterns + Bwebsocket_urlpatterns
 
 application = ProtocolTypeRouter({
-    "https": get_asgi_application(),
+    "http": get_asgi_application(),
     "websocket": AuthMiddlewareStack(
         URLRouter(
             websocket_urlpatterns
