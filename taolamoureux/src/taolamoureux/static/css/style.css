@@ -1208,6 +1208,13 @@ le texte (le titre et la description)*/
     float: right;
 }
 
+#resultat-imc {
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .resultats_calculer_IMC {
     background-color: #CEEFF4;
     padding: 10px;
@@ -1230,7 +1237,7 @@ le texte (le titre et la description)*/
     display: flex;
     justify-content: center;
     flex-direction: column;
-    opacity: 0;
+    opacity: 1;
     margin-left: 20px;  
     margin-right: 20px;
 }

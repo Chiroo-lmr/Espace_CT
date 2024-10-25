@@ -10,5 +10,6 @@ urlpatterns = [
     path('Projects/Counter/', counter, name="counter"),
     path('Projects/IMC_calculator/', IMC, name="IMC"),
     path('Projects/yt-video-importer/', ytVideoImporter, name="yt-video-importer"),
-    path('Projects/minecraft-server', minecraftServer, name="minecraft-server")
+    path('Projects/minecraft-server/', minecraftServer, name="minecraft-server"),
+    path('Projects/cloud/', cloudTravail, name="cloud-travail")
 ]

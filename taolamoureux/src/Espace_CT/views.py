@@ -241,8 +241,33 @@ def IMC(request):
     if request.user.is_authenticated:
         if request.method == "POST":
             age = request.POST.get("age")
-            taille = request.POST.get("taille")
-            poids = request.POST.get("poids")
+            taille = float(request.POST.get("taille")) / 100
+            poids = float(request.POST.get("poids"))
+            
+            IMC = round(poids / (taille * taille), 2)
+            if IMC < 18.5:
+                phraseResultat = "Attention, vous êtes plus léger qu'un nuage, avez-vous vu une licorne récemment ? 😉"
+            elif 18.5 < IMC < 25:
+                phraseResultat = "Votre IMC est parfait, vous pouvez continuer à manger des cupcakes sans souci ! 🧁🍰🎂"
+            elif 25 < IMC < 30:
+                phraseResultat = "Vous êtes en surpoids, mais ce n'est pas grave, vous êtes toujours beau/belle comme un/une dieu/déesse ! 😎👸🏻🦸🏻‍♂️"    
+            elif 30 < IMC < 35:
+                phraseResultat = "Vous êtes en obésité modérée, c'est le moment de se mettre à la danse classique ou au twerk ! 💃🏼🕺🏼"
+            elif 35 < IMC < 40:
+                phraseResultat = "Vous êtes en obésité sévère, peut-être que vous devriez envisager une carrière dans le sumo ? 🤼‍♂️🤼‍♀️"
+            elif IMC > 40:
+                phraseResultat = "Vous êtes en obésité morbide, mais gardez le moral, vous avez le potentiel pour être le prochain roi/la prochaine reine de la montagne ! 🏔️👑"
+            else:
+                phraseResultat = "Données mal renseignés. Réessayez."
+            print(IMC)
+            return render(request, "Espace_CT/projet-calculer-IMC.html", {
+                "age": age,
+                "poids": poids,
+                "taille": taille,
+                "IMC": IMC,
+                "phraseResultat": phraseResultat
+
+            })
         else:
             return render(request, "Espace_CT/projet-calculer-IMC.html")
     else:
@@ -357,3 +382,6 @@ def minecraftServer(request):
         return render(request, "Espace_CT/minecraft-server.html", context)
     else:
         return redirect('/')
+    
+def cloudTravail(request):
+    return render(request, "Espace_CT/cloud.html")

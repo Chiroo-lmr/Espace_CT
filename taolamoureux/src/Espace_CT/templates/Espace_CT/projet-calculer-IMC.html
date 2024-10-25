@@ -21,7 +21,7 @@
                 <label for="taille">Votre taille en centimètres :</label>
                 <input type="number" id="taille" name="taille" placeholder="taille" required>
                 <label for="poids">Votre poids en kilogrammes :</label>
-                <input type="number" id="poids" name="poids" placeholder="poids">
+                <input type="number" id="poids" name="poids" placeholder="poids" required>
                 <input id="calculer-imc-btn" type="submit" value="Calculer l'IMC" required>
             </form>
         </div>
@@ -32,14 +32,16 @@
             <div class="img_voir_les_resultats">
                 <img src="{% static 'svg/traît_calculer_IMC.svg' %}" class="svg_calculer_IMC">
             </div>
+        {% if IMC %}
         </div>
         <div class="resultats_calculer_IMC">
-            <h2 id="titre_resultats_calculer_IMC"></h2>
+            <h2 id="titre_resultats_calculer_IMC">Ton IMC est de {{ IMC }}</h2>
             <p id="resultat-imc"></p>
         </div>
         <div id="plus-dinfo_resultat_calculer_IMC">
-            <p id="phrase_plus-dinfo_resultat_calculer_IMC"></p>
+            <p id="phrase_plus-dinfo_resultat_calculer_IMC">{{ phraseResultat }}</p>
         </div>
+        {% endif %}
     </main>
     {% include 'partials/footer.html' %}
 </body>
