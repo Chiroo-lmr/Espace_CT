@@ -1,14 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>cloud</title>
 </head>
 <body>
-    <div class="cloud-links" style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
-        <h1><a href="">English</a></h1>
-        <h1><a href="">Histoire geo</a></h1>
-    </div>
+    {% include 'partials/navbar.html' %}
+    <main>
+        <div class="cloud-links">
+            {% for link in links %}
+            <div class="titleLink">
+                <a href="{{link.link}}">{{link.name}}</a>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    {% include 'partials/footer.html' %}
 </body>
 </html>

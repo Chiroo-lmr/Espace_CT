@@ -384,4 +384,8 @@ def minecraftServer(request):
         return redirect('/')
     
 def cloudTravail(request):
-    return render(request, "Espace_CT/cloud.html")
+    links = CloudTravail.objects.all()
+
+    return render(request, "Espace_CT/cloud.html", {
+        'links': links
+    })

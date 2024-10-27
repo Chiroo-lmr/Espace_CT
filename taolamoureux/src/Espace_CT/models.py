@@ -21,3 +21,10 @@ class MinecraftServer(models.Model):
     password = models.CharField(max_length=200, default='pwd')
     def __str__(self):
         return self.name
+    
+
+class CloudTravail(models.Model):
+    name = models.CharField(max_length=100)
+    link = models.CharField(max_length=500, default='https://www.office.com/launch/powerpoint?wdOrigin=MARKETING.POWERPOINT.SIGNIN&auth=1')
+    def __str__(self):
+        return self.name

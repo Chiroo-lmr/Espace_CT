@@ -1397,6 +1397,25 @@ le texte (le titre et la description)*/
     }
 }
 
+/*Page cloud de travail*/
+
+.cloud-links {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 80px;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.titleLink {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    font-weight: 900;
+}
+
 /*Page yt video importeur */
 .title_yt_video_importer {
     display: flex;
